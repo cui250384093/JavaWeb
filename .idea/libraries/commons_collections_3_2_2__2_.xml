@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-collections-3.2.2 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/13_cookie_session/src/main/webapp/WEB-INF/lib/commons-collections-3.2.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

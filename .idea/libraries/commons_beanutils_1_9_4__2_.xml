@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-beanutils-1.9.4 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/13_cookie_session/src/main/webapp/WEB-INF/lib/commons-beanutils-1.9.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

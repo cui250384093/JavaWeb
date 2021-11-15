@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="07_servlet" />
+        <module name="07_jsp" />
+        <module name="15_filter" />
+        <module name="06_servlet" />
+        <module name="javaweb" />
+        <module name="book" />
+        <module name="13_cookie_session" />
+        <module name="16_jason" />
+        <module name="09_EL_JSTL" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="06_servlet" target="1.8" />
+      <module name="07_jsp" target="1.8" />
+      <module name="07_servlet" target="1.8" />
+      <module name="09_EL_JSTL" target="1.8" />
+      <module name="13_cookie_session" target="1.8" />
+      <module name="15_filter" target="1.8" />
+      <module name="16_jason" target="1.8" />
+      <module name="book" target="1.8" />
+      <module name="javaweb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

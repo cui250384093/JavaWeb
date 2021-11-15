@@ -1,0 +1,10 @@
+# Project exclude paths
+/06_servlet/target/
+/07_jsp/target/
+/07_servlet/target/
+/09_EL_JSTL/target/
+/13_cookie_session/target/
+/15_filter/target/
+/16_jason/target/
+/book/target/
+/target/
