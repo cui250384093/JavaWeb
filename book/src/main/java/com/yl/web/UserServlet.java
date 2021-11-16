@@ -5,6 +5,7 @@ package com.yl.web; /**
  * @date 10/21/21 - 4:06 PM
  */
 
+import com.google.gson.Gson;
 import com.yl.pojo.User;
 import com.yl.service.impl.UserService;
 import com.yl.service.impl.UserServiceImpl;
@@ -14,6 +15,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
@@ -47,6 +50,20 @@ public class UserServlet extends BaseServlet {
         session.invalidate();
 
         response.sendRedirect(request.getContextPath());
+    }
+
+    protected void ajaxExistsUsername(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String username = request.getParameter("username");
+        boolean existsUsername = userService.existsUsername(username);
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("existsUsername", existsUsername);
+
+        Gson gson = new Gson();
+        String json = gson.toJson(resultMap);
+
+        response.getWriter().write(json);
     }
 
     protected void regist(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, InvocationTargetException, IllegalAccessException {

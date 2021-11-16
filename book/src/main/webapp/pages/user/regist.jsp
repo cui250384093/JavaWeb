@@ -4,10 +4,22 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>尚硅谷会员注册页面</title>
+		<base href="http://localhost:8088/book/">
 		<%@ include file="/pages/common/head.jsp"%>
 		<script type="text/javascript">
 			// 页面加载完成之后
 			$(function () {
+
+				$("#username").blur(function() {
+					var username = this.value;
+					$.getJSON("http://localhost:8088/book/userServlet", "action=ajaxExistsUsername&username=" + username, function (data) {
+						if (data.existsUsername) {
+							$("span.errorMsg").text("用户名已存在！")
+						} else {
+							$("span.errorMsg").text("用户名可用！")
+						}
+					});
+				});
 
 				$("#code_img").click(function () {
 					this.src = "${basePath}kaptcha.jpg?=" + new Date();

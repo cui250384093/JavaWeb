@@ -1,13 +1,17 @@
 package com.yl.web;
 
+import com.google.gson.Gson;
 import com.yl.pojo.*;
 import com.yl.service.impl.BookService;
 import com.yl.service.impl.BookServiceImpl;
 import com.yl.util.WebUtils;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Description
@@ -76,5 +80,28 @@ public class CartServlet extends BaseServlet {
         }
 
         response.sendRedirect(request.getHeader("Referer"));
+    }
+
+    protected void ajaxAddItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        int id = WebUtils.parseInt(request.getParameter("id"), 0);
+        Book book = bookService.queryBookById(id);
+
+        CartItem cartItem = new CartItem(book.getId(), book.getName(), 1, book.getPrice());
+        Cart cart = (Cart) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+        }
+        cart.addItem(cartItem);
+        request.getSession().setAttribute("lastName", cartItem.getName());
+
+        Map<String, Object> resultMap = new HashMap<>();
+        resultMap.put("totalCount", cart.getTotalCount());
+        resultMap.put("lastName", cartItem.getName());
+
+        Gson gson = new Gson();
+        String json = gson.toJson(resultMap);
+
+        response.getWriter().write(json);
     }
 }
